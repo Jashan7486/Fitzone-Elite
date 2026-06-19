@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-400: #22d3ee;
+  --color-brand-500: #06b6d4;
+  --color-brand-600: #0891b2;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-neutral-950, #0a0a0a);
+  color: var(--color-white, #ffffff);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+:root[data-theme="light"] {
+  --color-neutral-950: #f4f4f5;
+  --color-neutral-900: #e4e4e7;
+  --color-neutral-800: #d4d4d8;
+  --color-neutral-700: #a1a1aa;
+  --color-neutral-600: #71717a;
+  --color-neutral-500: #52525b;
+  --color-neutral-400: #3f3f46;
+  --color-neutral-300: #27272a;
+  --color-neutral-200: #18181b;
+  --color-neutral-100: #09090b;
+  --color-neutral-50: #000000;
+  --color-white: #000000;
+  color-scheme: light;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.glass-panel {
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stylish-button {
+  background: linear-gradient(135deg, var(--color-brand-500) 0%, var(--color-brand-600) 100%);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.stylish-button::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, var(--color-brand-400) 0%, var(--color-brand-500) 100%);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+.stylish-button:hover::before {
+  opacity: 1;
+}
+
